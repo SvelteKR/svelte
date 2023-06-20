@@ -1,5 +1,5 @@
 ---
-title: Getting started
+title: 시작하기(Getting started)
 ---
 
 ---
