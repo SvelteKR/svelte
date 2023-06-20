@@ -2,36 +2,27 @@
 title: Component format
 ---
 
----
-コンポーネントは、Svelteアプリケーションを構成するブロックです。これらは .svelte ファイルにHTMLのスーパーセットを使って記述されます。
+컴포넌트는 Svelte어플리케이션을 구성하는 블록입니다. 컴포넌트는 `.svelte` 파일에 HTML의 슈퍼셋을 사용하여 작성됩니다.
 
-ここで説明される script 、 style 、マークアップのいずれもコンポーネントに必須のものではありません。
-
-컴포넌트는 Svelte어플리케이션을 구성하는 블록입니다. 
-
-스크립트, 스타일 및 마크업 세 가지 섹션은 모두 선택적입니다.
-
-Components are the building blocks of Svelte applications. They are written into `.svelte` files, using a superset of HTML.
-
-All three sections — script, styles and markup — are optional.
+여기서 설명 되는 script, style 및 마크업 세 가지 섹션은 모두 필수가 아닌 선택사항입니다.
 
 ```sv
 <script>
-	// logic goes here
+	// 로직은 여기에 작성
 </script>
 
-<!-- markup (zero or more items) goes here -->
+<!-- 0개 이상의 마크업을 작성 -->
 
 <style>
-	/* styles go here */
+	/* 스타일은 여기에 작성 */
 </style>
 ```
 
 ### &lt;script&gt;
 
-A `<script>` block contains JavaScript that runs when a component instance is created. Variables declared (or imported) at the top level are 'visible' from the component's markup. There are four additional rules:
+`<script>` 블록은 컴포넌트 인스턴스가 생성될 때 실행되는 JavaScript를 포함합니다. 최상위 수준에서 선언된 (또는 import된) 변수는 컴포넌트의 마크업에서 볼 수 있습니다. 추가로 `<script>`에는 네 가지 규칙이 있습니다:
 
-#### 1. `export` creates a component prop
+#### 1. `export` 키워드를 사용하여 컴포넌트 prop을 생성합니다.
 
 ---
 
