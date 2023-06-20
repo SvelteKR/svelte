@@ -3,6 +3,13 @@ title: Component format
 ---
 
 ---
+コンポーネントは、Svelteアプリケーションを構成するブロックです。これらは .svelte ファイルにHTMLのスーパーセットを使って記述されます。
+
+ここで説明される script 、 style 、マークアップのいずれもコンポーネントに必須のものではありません。
+
+컴포넌트는 Svelte어플리케이션을 구성하는 블록입니다. 
+
+스크립트, 스타일 및 마크업 세 가지 섹션은 모두 선택적입니다.
 
 Components are the building blocks of Svelte applications. They are written into `.svelte` files, using a superset of HTML.
 
