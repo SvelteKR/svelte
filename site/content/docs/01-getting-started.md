@@ -18,6 +18,6 @@ SvelteKit은 [Svelte 컴파일러](https://www.npmjs.com/package/svelte)를 이�
 
 만약 완전한 앱 프레임워크가 필요하지 않고 프론트엔드만으로 간단한 사이트나 앱을 만들고자 한다면, Svelte (Kit 없이)와 Vite를 함께 사용할 수도 있습니다. 이 경우 `npm init vite`명령을 실행하고 svelte 옵션을 선택합니다. 이후`npm run build`명령을 실행하면 `dist` 디렉토리 안에 HTML, JS, CSS 파일이 생성됩니다.
 
-Svelte 팀은 [VS Code용 확장 프로그램](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)을 유지보수하고 있으며, 다양한 다른 [에디터](https://sveltesociety.dev/tools#editor-support)와 도구와의 통합도 가능합니다.
+Svelte 팀은 [VS Code용 확장 프로그램](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)을 유지보수하고 있으며, 다양한 다른 [에디터](https://sveltesociety.dev/tools#editor-support)나 도구와의 통합도 가능합니다.
 
 도움이 필요한 경우 [Discord](https://svelte.dev/chat) 또는 [StackOverflow](https://stackoverflow.com/questions/tagged/svelte)에서 도움을 받을 수 있습니다.
