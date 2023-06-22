@@ -8,7 +8,7 @@ Svelte 참조 문서에 오신 것을 환영합니다! 이 문서는 이미 Svel
 
 ## 프로젝트 시작하기
 
-Svelte 팀에서 공식적으로 제공하는 응용 프로그램 프레임워크인 [SvelteKit](https://kit.svelte.dev/)을 사용하는 것을 권장합니다.
+Svelte 팀에서 공식적으로 제공하는 어플리케이션 프레임워크인 [SvelteKit](https://kit.svelte.dev/)을 사용하는 것을 권장합니다.
 
 ```
 npm create svelte@latest myapp
