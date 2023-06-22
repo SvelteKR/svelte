@@ -6,7 +6,7 @@ Svelte 참조 문서에 오신 것을 환영합니다! 이 문서는 이미 Svel
 
 아직 Svelte에 익숙하지 않다면, 이 문서를 참고하기 전에 [대화식 튜토리얼](https://learn.svelte.dev)이나 [예제](/examples)를 살펴보시는 것이 좋습니다. [REPL](/repl)을 사용하여 온라인에서 Svelte를 시도해볼 수도 있습니다. 또는 보다 다양한 기능을 제공하는 환경으로 [StackBlitz](https://sveltekit.new)에서 Svelte를 시도해볼 수도 있습니다.
 
-## 프로젝트 시작하기
+## 프로젝트 시작하기
 
 Svelte 팀에서 공식적으로 제공하는 응용 프로그램 프레임워크인 [SvelteKit](https://kit.svelte.dev/)을 사용하는 것을 권장합니다.
 
