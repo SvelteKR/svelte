@@ -2,9 +2,9 @@
 title: Introduction
 ---
 
-Svelte 참조 문서에 오신 것을 환영합니다! 이 문서는 이미 Svelte에 어느 정도 익숙한 사람들을 위한 자료로, Svelte을 사용하는 방법에 대해 더 자세히 알고 싶은 분들을 위한 것입니다.
+Svelte 참조 문서에 오신 것을 환영합니다! 이 문서는 이미 Svelte에 어느 정도 익숙한 사람들을 위한 자료로, Svelte을 사용하는 방법에 대해 더 자세히 알고 싶은 분들을 위한 문서입니다.
 
-아직 Svelte에 익숙하지 않다면, 이 문서를 참고하기 전에 [대화식 튜토리얼](https://learn.svelte.dev)이나 [예제](/examples)를 살펴보시는 것이 좋습니다. [REPL](/repl)을 사용하여 온라인에서 Svelte를 시도해볼 수도 있습니다. 또는 보다 다양한 기능을 제공하는 환경으로 [StackBlitz](https://sveltekit.new)에서 Svelte를 시도해볼 수도 있습니다.
+아직 Svelte에 익숙하지 않다면, 이 문서를 참고하기 전에 [대화식 튜토리얼](https://learn.svelte.dev)이나 [예제](/examples)를 살펴보시는 것이 좋습니다. [REPL](/repl)을 사용하여 온라인에서 Svelte를 시험해볼 수도 있습니다. 또는 보다 다양한 기능을 제공하는 환경으로 [StackBlitz](https://sveltekit.new)에서 Svelte를 시험해볼 수도 있습니다.
 
 ## 프로젝트 시작하기
 
@@ -23,12 +23,12 @@ SvelteKit은 [Svelte컴파일러](https://www.npmjs.com/package/svelte)를 호�
 
 만약 어떤 이유로 인해 SvelteKit을 사용하지 않고 싶다면, `npm init vite`를 실행하고 `svelte` 옵션을 선택하여 Svelte를 Vite와 함께 (SvelteKit 없이) 사용할 수도 있습니다. 이렇게 하면 `npm run build` 를 통해 HTML, JS 및 CSS 파일이 dist 디렉토리 내에 생성됩니다. 대부분의 경우, 라우팅 라이브러리를 선택해야 할 필요도 있을 것입니다. [라우팅 라이브러리 선택](/faq#is-there-a-router)을 참고하시기 바랍니다.
 
-Alternatively, there are [plugins for all the major web bundlers](https://sveltesociety.dev/tools#bundling) to handle Svelte compilation — which will output `.js` and `.css` that you can insert into your HTML — but most others won't handle SSR.
+또한, Svelte 컴파일을 처리하기 위한 [번들링 플러그인](https://sveltesociety.dev/tools#bundling)들이 있습니다. 이런 플러그인들은 HTML에 들어갈 `.js` 와 `.css` 를 생성해 주지만 대부분 SSR을 지원하지는 않습니다.
 
-## Editor tooling
+## 에디터 도구
 
-The Svelte team maintains a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) and there are integrations with various other [editors](https://sveltesociety.dev/tools#editor-support) and tools as well.
+Svelte 팀은 [VS Code extension](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)을 유지 관리하며, 다른 [에디터](https://sveltesociety.dev/tools#editor-support) 및 도구와의 통합도 가능합니다.
 
-## Getting help
+## 도움 받기
 
-Don't be shy about asking for help in the [Discord chatroom](https://svelte.dev/chat)! You can also find answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/svelte).
+[Discord chatroom](https://svelte.dev/chat)에서 도움을 받는것을 망설이지 마세요! 또한 [Stack Overflow](https://stackoverflow.com/questions/tagged/svelte)에서도 답변을 찾을수 있습니다.
