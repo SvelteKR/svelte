@@ -2,9 +2,9 @@
 title: Svelte components
 ---
 
-Components are the building blocks of Svelte applications. They are written into `.svelte` files, using a superset of HTML.
+컴포넌트는 Svelte 애플리케이션의 구성 요소입니다. 컴포넌트는 HTML의 슈퍼셋인 `.svelte` 파일로 작성됩니다. 
 
-All three sections — script, styles and markup — are optional.
+컴포넌트는 스크립트(script), 스타일(styles), 마크업(markup) 세 가지 섹션으로 구성되며 모두 선택 사항입니다.
 
 ```svelte
 <script>
@@ -20,11 +20,11 @@ All three sections — script, styles and markup — are optional.
 
 ## &lt;script&gt;
 
-A `<script>` block contains JavaScript that runs when a component instance is created. Variables declared (or imported) at the top level are 'visible' from the component's markup. There are four additional rules:
+`<script>` 블록은 컴포넌트 인스턴스가 생성될 때 실행되는 JavaScript 코드를 작성하는 곳입니다. 블록 최상위에서 선언되는 변수는 컴포넌트의 마크업 부분에 표시할수 있습니다. 변수에는 네 가지 추가 규칙이 있습니다:
 
-### 1. `export` creates a component prop
+### 1. `export` 는 컴포넌트의 prop를 생성합니다.
 
-Svelte uses the `export` keyword to mark a variable declaration as a _property_ or _prop_, which means it becomes accessible to consumers of the component (see the section on [attributes and props](/docs/basic-markup#attributes-and-props) for more information).
+스벨트는 `export` 키워드를 사용하여 to mark a variable declaration as a _property_ or _prop_, which means it becomes accessible to consumers of the component (see the section on [attributes and props](/docs/basic-markup#attributes-and-props) for more information).
 
 ```svelte
 <script>
