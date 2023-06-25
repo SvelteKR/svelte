@@ -22,23 +22,24 @@ title: Svelte components
 
 `<script>` 블록은 컴포넌트 인스턴스가 생성될 때 실행되는 JavaScript 코드를 작성하는 곳입니다. 블록 최상위에서 선언되는 변수는 컴포넌트의 마크업 부분에 표시할수 있습니다. 변수에는 네 가지 추가 규칙이 있습니다:
 
-### 1. `export` 는 컴포넌트의 prop를 생성합니다.
+### 1. `export` 는 컴포넌트의 prop(프로퍼티)를 생성합니다.
 
-스벨트는 `export` 키워드를 사용하여 to mark a variable declaration as a _property_ or _prop_, which means it becomes accessible to consumers of the component (see the section on [attributes and props](/docs/basic-markup#attributes-and-props) for more information).
+스벨트는 변수의 선언을 _property_ 또는 _prop_ 로써 마크하기 위해 `export` 키워드를 사용합니다. 그걸로 인해서 컴포넌트를 사용할 때 선언한 변수에 접근 가능하게 됩니다. (보다 더 자세한 내용은 [attributes and props](/docs/basic-markup#attributes-and-props)를 참고).
 
 ```svelte
 <script>
 	export let foo;
 
-	// Values that are passed in as props
-	// are immediately available
+	// 프로퍼티로써 전달받은 변수는 
+	// 바로 사용할 수 있습니다
 	console.log({ foo });
 </script>
 ```
 
-You can specify a default initial value for a prop. It will be used if the component's consumer doesn't specify the prop on the component (or if its initial value is `undefined`) when instantiating the component. Note that if the values of props are subsequently updated, then any prop whose value is not specified will be set to `undefined` (rather than its initial value).
+prop에는 기본값을 지정할 수 있습니다. 기본값은 컴포넌트가 인스턴스화 될 때 컴포넌트의 prop값을 지정하지 않았을 경우(또는 지정한값이 `undefined` 인 경우)에 사용됩니다.  
+Note that if the values of props are subsequently updated, then any prop whose value is not specified will be set to `undefined` (rather than its initial value).
 
-In development mode (see the [compiler options](/docs/svelte-compiler#compile)), a warning will be printed if no default initial value is provided and the consumer does not specify a value. To squelch this warning, ensure that a default initial value is specified, even if it is `undefined`.
+개발모드에서는 (see the [compiler options](/docs/svelte-compiler#compile)), 만약 기본값이 지정되어 있지 않고 사용할 때도 값을 지정하지 않을경우 경고가 출력됩니다. 경고를 해소하기 위해서는 초기값이 `undefined` 라도 기본값을 지정해야 합니다.
 
 ```svelte
 <script>
