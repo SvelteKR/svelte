@@ -38,7 +38,7 @@ title: Svelte components
 
 prop에는 기본값을 지정할 수 있습니다. 기본값은 컴포넌트가 인스턴스화 될 때 컴포넌트의 prop값을 지정하지 않았을 경우(또는 지정한값이 `undefined` 인 경우)에 사용됩니다.  
 
-개발모드에서는 (see the [compiler options](/docs/svelte-compiler#compile)), 만약 기본값이 지정되어 있지 않고 사용할 때도 값을 지정하지 않을경우 경고가 출력됩니다. 경고를 해소하기 위해서는 초기값이 `undefined` 라도 기본값을 지정해야 합니다.
+개발모드에서는 ([compiler options](/docs/svelte-compiler#compile)), 만약 기본값이 지정되어 있지 않고 사용할 때도 값을 지정하지 않을경우 경고가 출력됩니다. 경고를 해소하기 위해서는 초기값이 `undefined` 라도 기본값을 지정해야 합니다.
 
 ```svelte
 <script>
