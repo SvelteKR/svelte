@@ -47,7 +47,7 @@ prop에는 기본값을 지정할 수 있습니다. 기본값은 컴포넌트가
 </script>
 ```
 
-If you export a `const`, `class` or `function`, it is readonly from outside the component. Functions are valid prop values, however, as shown below.
+만약 `const`, `class` 또는 `function` 을 export 하면, 컴포넌트 외부에서 읽기전용이 됩니다. 그러나 아래와 같이 Functions는 유효한 prop값이 됩니다.
 
 ```svelte
 <!--- file: App.svelte --->
@@ -65,9 +65,9 @@ If you export a `const`, `class` or `function`, it is readonly from outside the 
 </script>
 ```
 
-Readonly props can be accessed as properties on the element, tied to the component using [`bind:this` syntax](/docs/component-directives#bind-this).
+읽기전용 프로퍼티는 요소의 프로퍼티로써 접근이 가능하여 [`bind:this` 구문]을 사용하여 컴포넌트에 연결할수 있습니다. 
 
-You can use reserved words as prop names.
+예약어도 프로퍼티의 이름으로써 사용할수 있습니다.
 
 ```svelte
 <!--- file: App.svelte --->
