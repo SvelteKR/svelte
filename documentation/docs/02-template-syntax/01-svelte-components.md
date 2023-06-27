@@ -83,7 +83,7 @@ prop에는 기본값을 지정할 수 있습니다. 기본값은 컴포넌트가
 
 ### 2. Assignments are 'reactive'
 
-To change component state and trigger a re-render, just assign to a locally declared variable.
+컴포넌트의 상태를 변경해서 재렌더링을 트리거 하기 위해 필요한 것은 로컬에 정의한 변수에 대입하는 것 뿐입니다.
 
 Update expressions (`count += 1`) and property assignments (`obj.x = y`) have the same effect.
 
