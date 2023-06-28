@@ -105,10 +105,10 @@ Svelte의 반응성은 할당에 기반하므로, `.push()`나 `.splice()`와 �
 	let arr = [0, 1];
 
 	function handleClick() {
-		// this method call does not trigger an update
+		// 이 메서드 호출은 변경을 트리거하지 않습니다.
 		arr.push(2);
-		// this assignment will trigger an update
-		// if the markup references `arr`
+		// 이 할당은 `arr` 이 마크업에서 참조되면 
+		// 변경이 트리거 됩니다.
 		arr = arr;
 	}
 </script>
@@ -151,7 +151,7 @@ top-level의 statement(블록이나 함수 내부가 아닌) 는 `$:` [JS 레이
 </script>
 ```
 
-Only values which directly appear within the `$:` block will become dependencies of the reactive statement. For example, in the code below `total` will only update when `x` changes, but not `y`.
+`$:` 블록 내에서 직접적으로 표현되는 값들만이 반응형 statement가 의존하는 값이 됩니다. 예를 들어, 아래 코드에서 `total`은 `x`가 변경될 때만 변경되고, `y`는 변경되지 않습니다.
 
 ```svelte
 <!--- file: App.svelte --->
