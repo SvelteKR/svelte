@@ -22,7 +22,7 @@ title: Svelte components
 
 `<script>` 블록은 컴포넌트 인스턴스가 생성될 때 실행되는 JavaScript 코드를 작성하는 곳입니다. 블록 최상위에서 선언되는 변수는 컴포넌트의 마크업 부분에 표시할수 있습니다. 변수에는 네 가지 추가 규칙이 있습니다:
 
-### 1. `export` 는 컴포넌트의 prop(프로퍼티)를 생성합니다.
+### 1. `export` creates a component prop
 
 스벨트는 변수의 선언을 _property_ 또는 _prop_ 로써 마크하기 위해 `export` 키워드를 사용합니다. 그걸로 인해서 컴포넌트를 사용할 때 선언한 변수에 접근 가능하게 됩니다. (보다 더 자세한 내용은 [attributes and props](/docs/basic-markup#attributes-and-props)를 참고).
 
@@ -75,31 +75,30 @@ prop에는 기본값을 지정할 수 있습니다. 기본값은 컴포넌트가
 	/** @type {string} */
 	let className;
 
-	// creates a `class` property, even
-	// though it is a reserved word
+	// 예약어이지만 `class` 프로퍼티를 생성할수 있습니다.
 	export { className as class };
 </script>
 ```
 
-### 2. Assignments are 'reactive'
+### 2. Assignments are 'reactive' (할당은 '반응적' 입니다.)
 
 컴포넌트의 상태를 변경해서 재렌더링을 트리거 하기 위해 필요한 것은 로컬에 정의한 변수에 대입하는 것 뿐입니다.
 
-Update expressions (`count += 1`) and property assignments (`obj.x = y`) have the same effect.
+업데이트 표현식 (`count += 1`) 과 프로퍼티 할당 (`obj.x = y`) 은 같은 효과를 가집니다.
 
 ```svelte
 <script>
 	let count = 0;
 
 	function handleClick() {
-		// calling this function will trigger an
-		// update if the markup references `count`
+		// 이 함수의 호출은 마크업에서 `count`를 참조하고 있다면
+    // 변경처리를 트리거합니다.
 		count = count + 1;
 	}
 </script>
 ```
 
-Because Svelte's reactivity is based on assignments, using array methods like `.push()` and `.splice()` won't automatically trigger updates. A subsequent assignment is required to trigger the update. This and more details can also be found in the [tutorial](https://learn.svelte.dev/tutorial/updating-arrays-and-objects).
+Svelte의 반응성은 할당에 기반하므로, `.push()`나 `.splice()`와 같은 배열 메서드를 사용해도 자동으로 변경처리가 트리거되지 않습니다. 변경처리를 트리거하기 위해서는 이후에 할당 작업이 필요합니다. 이와 관련된 자세한 내용은 [튜토리얼](https://learn.svelte.dev/tutorial/updating-arrays-and-objects)에서도 확인할 수 있습니다.
 
 ```svelte
 <script>
@@ -115,28 +114,28 @@ Because Svelte's reactivity is based on assignments, using array methods like `.
 </script>
 ```
 
-Svelte's `<script>` blocks are run only when the component is created, so assignments within a `<script>` block are not automatically run again when a prop updates. If you'd like to track changes to a prop, see the next example in the following section.
+Svelte의 `<script>` 블록은 컴포넌트가 생성될 때에만 실행되므로, `<script>` 블록 내의 할당은 프로퍼티가 변경될 때 자동으로 다시 실행되지 않습니다. 프로퍼티의 변경을 추적하려면 다음 섹션의 예제를 참조하십시오.
 
 ```svelte
 <script>
 	export let person;
-	// this will only set `name` on component creation
-	// it will not update when `person` does
+	// 이것은 컴포넌트가 생성될 때에만 `name`을 설정합니다.
+	// `person`이 갱신될 때 `name`은 갱신되지 않습니다.
 	let { name } = person;
 </script>
 ```
 
 ### 3. `$:` marks a statement as reactive
 
-Any top-level statement (i.e. not inside a block or a function) can be made reactive by prefixing it with the `$:` [JS label syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label). Reactive statements run after other script code and before the component markup is rendered, whenever the values that they depend on have changed.
+top-level의 statement(블록이나 함수 내부가 아닌) 는 `$:` [JS 레이블 구문](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label)을 접두사로 붙여 반응형으로 만듭니다. 반응형 statement는 다른 스크립트 코드가 실행된 후 혹은 컴포넌트 마크업이 렌더링되기 전에 실행되며, 이에 의존하는 값이 변경될 때마다 실행됩니다.
 
 ```svelte
 <script>
 	export let title;
 	export let person;
 
-	// this will update `document.title` whenever
-	// the `title` prop changes
+	// `document.title` 은 
+	// `title` prop이 변경 될때마다 변경 됩니다.
 	$: document.title = title;
 
 	$: {
@@ -144,10 +143,10 @@ Any top-level statement (i.e. not inside a block or a function) can be made reac
 		console.log(`the current title is ${title}`);
 	}
 
-	// this will update `name` when 'person' changes
+	// 'person' 에 변경이 발생하면 `name` 이 변경됩니다. 
 	$: ({ name } = person);
 
-	// don't do this. it will run before the previous line
+	// 이렇게 하지마세요. 이전줄보다 먼저 실행됩니다.
 	let name2 = name;
 </script>
 ```
