@@ -173,7 +173,7 @@ Total: {total}
 <button on:click={() => y++}> Increment Y </button>
 ```
 
-It is important to note that the reactive blocks are ordered via simple static analysis at compile time, and all the compiler looks at are the variables that are assigned to and used within the block itself, not in any functions called by them. This means that `yDependent` will not be updated when `x` is updated in the following example:
+반응형 블록은 컴파일할 때 간단한 정적 분석을 통해 순서가 결정됩니다. 이때 컴파일러가 보는 것은 블록 자체에서 할당되어 사용되는 변수들뿐이며, 해당 블록에서 호출하는 함수안에서 사용되는 변수까지는 보지 않는다는 사실을 알아두는게 중요합니다. 따라서 다음 예시에서 `x`가 업데이트될 때 `yDependent`가 업데이트되지 않습니다.
 
 ```svelte
 <script>
@@ -190,7 +190,7 @@ It is important to note that the reactive blocks are ordered via simple static a
 </script>
 ```
 
-Moving the line `$: yDependent = y` below `$: setY(x)` will cause `yDependent` to be updated when `x` is updated.
+`$: setY(x)` 아래에 `$: yDependent = y`라인을 옮기면, `x`가 업데이트될 때 `yDependent`도 업데이트됩니다.
 
 If a statement consists entirely of an assignment to an undeclared variable, Svelte will inject a `let` declaration on your behalf.
 
