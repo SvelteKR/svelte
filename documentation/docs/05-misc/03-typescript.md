@@ -10,7 +10,7 @@ To use TypeScript within Svelte components, you need to add a preprocessor that 
 
 ### Using SvelteKit or Vite
 
-The easiest way to get started is scaffolding a new SvelteKit project by typing `npm create svelte@latest`, following the prompts and chosing the TypeScript option.
+The easiest way to get started is scaffolding a new SvelteKit project by typing `npm create svelte@latest`, following the prompts and choosing the TypeScript option.
 
 ```ts
 /// file: svelte.config.js
@@ -97,8 +97,8 @@ Events can be typed with `createEventDispatcher`:
 
 	const dispatch = createEventDispatcher<{
 		event: null; // does not accept a payload
-		type: string; // has a required string payload
-		click: string | null; // has an optional string payload
+		click: string; // has a required string payload
+		type: string | null; // has an optional string payload
 	}>();
 
 	function handleClick() {
