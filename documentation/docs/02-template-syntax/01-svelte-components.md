@@ -2,19 +2,19 @@
 title: Svelte components
 ---
 
-컴포넌트는 Svelte 애플리케이션의 구성 요소입니다. 컴포넌트는 HTML의 슈퍼셋인 `.svelte` 파일로 작성됩니다. 
+컴포넌트는 Svelte 애플리케이션의 구성 요소입니다. 컴포넌트는 HTML의 슈퍼셋인 `.svelte` 파일로 작성됩니다.
 
 컴포넌트는 스크립트(script), 스타일(styles), 마크업(markup) 세 가지 섹션으로 구성되며 모두 선택 사항입니다.
 
 ```svelte
 <script>
-	// logic goes here
+	// 로직은 이쪽에
 </script>
 
-<!-- markup (zero or more items) goes here -->
+<!-- 마크업은 (한개 또는 그 이상의 아이템) 이쪽에 -->
 
 <style>
-	/* styles go here */
+	/* 스타일은 이쪽에 */
 </style>
 ```
 
@@ -22,7 +22,7 @@ title: Svelte components
 
 `<script>` 블록은 컴포넌트 인스턴스가 생성될 때 실행되는 JavaScript 코드를 작성하는 곳입니다. 블록 최상위에서 선언되는 변수는 컴포넌트의 마크업 부분에 표시할수 있습니다. 변수에는 네 가지 추가 규칙이 있습니다:
 
-### 1. `export` creates a component prop
+### 1. `export` 구문은 컴포넌트의 프로퍼티를 만듭니다
 
 스벨트는 변수의 선언을 _property_ 또는 _prop_ 로써 마크하기 위해 `export` 키워드를 사용합니다. 그걸로 인해서 컴포넌트를 사용할 때 선언한 변수에 접근 가능하게 됩니다. (보다 더 자세한 내용은 [attributes and props](/docs/basic-markup#attributes-and-props)를 참고).
 
@@ -30,15 +30,15 @@ title: Svelte components
 <script>
 	export let foo;
 
-	// 프로퍼티로써 전달받은 변수는 
+	// 프로퍼티로써 전달받은 변수는
 	// 바로 사용할 수 있습니다
 	console.log({ foo });
 </script>
 ```
 
-prop에는 기본값을 지정할 수 있습니다. 기본값은 컴포넌트가 인스턴스화 될 때 컴포넌트의 prop값을 지정하지 않았을 경우(또는 지정한값이 `undefined` 인 경우)에 사용됩니다.  
+prop(프로퍼티)에는 기본값을 지정할 수 있습니다. 기본값은 컴포넌트가 인스턴스화 될 때 컴포넌트의 prop값을 지정하지 않았을 경우(또는 지정한값이 `undefined` 인 경우)에 사용됩니다.
 
-개발모드에서는 ([compiler options](/docs/svelte-compiler#compile)), 만약 기본값이 지정되어 있지 않고 사용할 때도 값을 지정하지 않을경우 경고가 출력됩니다. 경고를 해소하기 위해서는 초기값이 `undefined` 라도 기본값을 지정해야 합니다.
+개발 모드에서는 ([compiler options](/docs/svelte-compiler#compile)), 만약 기본값이 지정되어 있지 않고 사용할 때도 값을 지정하지 않으면 경고가 출력됩니다. 경고를 해소하기 위해서는 초기값이 `undefined` 라도 기본값을 지정해야 합니다.
 
 ```svelte
 <script>
@@ -65,7 +65,7 @@ prop에는 기본값을 지정할 수 있습니다. 기본값은 컴포넌트가
 </script>
 ```
 
-읽기전용 프로퍼티는 요소의 프로퍼티로써 접근이 가능하여 [`bind:this` 구문]을 사용하여 컴포넌트에 연결할수 있습니다. 
+읽기전용 프로퍼티는 요소의 프로퍼티로써 접근이 가능하여 [`bind:this` 구문]을 사용하여 컴포넌트에 연결할수 있습니다.
 
 예약어도 프로퍼티의 이름으로써 사용할수 있습니다.
 
@@ -75,7 +75,7 @@ prop에는 기본값을 지정할 수 있습니다. 기본값은 컴포넌트가
 	/** @type {string} */
 	let className;
 
-	// 예약어이지만 `class` 프로퍼티를 생성할수 있습니다.
+	// 예약어이지만 `class` 프로퍼티를 생성할수 있습니다.
 	export { className as class };
 </script>
 ```
@@ -107,7 +107,7 @@ Svelte의 반응성은 할당에 기반하므로, `.push()`나 `.splice()`와 �
 	function handleClick() {
 		// 이 메서드 호출은 변경을 트리거하지 않습니다.
 		arr.push(2);
-		// 이 할당은 `arr` 이 마크업에서 참조되면 
+		// 이 할당은 `arr` 이 마크업에서 참조되면
 		// 변경이 트리거 됩니다.
 		arr = arr;
 	}
@@ -125,7 +125,7 @@ Svelte의 `<script>` 블록은 컴포넌트가 생성될 때에만 실행되므�
 </script>
 ```
 
-### 3. `$:` marks a statement as reactive
+### 3. `$:` 구문은 상태를 반응형으로 표시합니다
 
 top-level의 statement(블록이나 함수 내부가 아닌) 는 `$:` [JS 레이블 구문](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label)을 접두사로 붙여 반응형으로 만듭니다. 반응형 statement는 다른 스크립트 코드가 실행된 후 혹은 컴포넌트 마크업이 렌더링되기 전에 실행되며, 이에 의존하는 값이 변경될 때마다 실행됩니다.
 
@@ -134,7 +134,7 @@ top-level의 statement(블록이나 함수 내부가 아닌) 는 `$:` [JS 레이
 	export let title;
 	export let person;
 
-	// `document.title` 은 
+	// `document.title` 은
 	// `title` prop이 변경 될때마다 변경 됩니다.
 	$: document.title = title;
 
@@ -143,10 +143,10 @@ top-level의 statement(블록이나 함수 내부가 아닌) 는 `$:` [JS 레이
 		console.log(`the current title is ${title}`);
 	}
 
-	// 'person' 에 변경이 발생하면 `name` 이 변경됩니다. 
+	// 'person' 에 변경이 발생하면 `name` 이 변경됩니다.
 	$: ({ name } = person);
 
-	// 이렇게 하지마세요. 이전줄보다 먼저 실행됩니다.
+	// 이렇게 하지마세요. 이전줄보다 먼저 실행됩니다.
 	let name2 = name;
 </script>
 ```
@@ -192,7 +192,7 @@ Total: {total}
 
 `$: setY(x)` 아래에 `$: yDependent = y`라인을 옮기면, `x`가 업데이트될 때 `yDependent`도 업데이트됩니다.
 
-If a statement consists entirely of an assignment to an undeclared variable, Svelte will inject a `let` declaration on your behalf.
+만약 문장이 선언되지 않은 변수에 할당으로만 구성되어 있다면, Svelte는 대신 `let` 선언을 삽입합니다.
 
 ```svelte
 <!--- file: App.svelte --->
@@ -209,15 +209,15 @@ If a statement consists entirely of an assignment to an undeclared variable, Sve
 
 ### 4. Prefix stores with `$` to access their values
 
-A _store_ is an object that allows reactive access to a value via a simple _store contract_. The [`svelte/store` module](/docs/svelte-store) contains minimal store implementations which fulfil this contract.
+스토어(store) 는 간단한 스토어 계약(store contract) 을 통해 반응적인 값 접근을 가능하게 하는 객체입니다. [`svelte/store` module](/docs/svelte-store)  모듈은 이 계약(contract)을 충족하는 최소한의 스토어 구현을 포함하고 있습니다.
 
-Any time you have a reference to a store, you can access its value inside a component by prefixing it with the `$` character. This causes Svelte to declare the prefixed variable, subscribe to the store at component initialization and unsubscribe when appropriate.
+스토어에 대한 참조가 있을 때마다 `$` 문자를 접두사로 사용하여 컴포넌트 내에서 해당 값을 액세스할 수 있습니다. 이렇게 하면 Svelte가 접두사가 붙은 변수를 선언하고, 컴포넌트 초기화 시 스토어를 구독하고 적절한 때에 구독을 해제합니다.
 
-Assignments to `$`-prefixed variables require that the variable be a writable store, and will result in a call to the store's `.set` method.
+`$` 접두사 변수에 대한 할당은 쓰기 가능한 스토어(writable store)여야하며, 이는 스토어의  `.set` 메서드를 호출하게 됩니다.
 
-Note that the store must be declared at the top level of the component — not inside an `if` block or a function, for example.
+스토어는 컴포넌트의 최상위 레벨에서 선언되어야합니다. if 블록이나 함수 내부에는 선언할 수 없습니다.
 
-Local variables (that do not represent store values) must _not_ have a `$` prefix.
+스토어 값이 아닌 로컬 변수에는 `$` 접두사를 사용해서는 안 됩니다.
 
 ```svelte
 <script>
