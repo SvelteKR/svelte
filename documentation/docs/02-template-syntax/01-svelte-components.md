@@ -207,7 +207,7 @@ Total: {total}
 </script>
 ```
 
-### 4. Prefix stores with `$` to access their values
+### 4. 스토어의 값에 접근 하기 위한 `$` 접두사
 
 스토어(store) 는 간단한 스토어 계약(store contract) 을 통해 반응적인 값 접근을 가능하게 하는 객체입니다. [`svelte/store` module](/docs/svelte-store)  모듈은 이 계약(contract)을 충족하는 최소한의 스토어 구현을 포함하고 있습니다.
 
@@ -240,6 +240,20 @@ Total: {total}
 // @noErrors
 store = { subscribe: (subscription: (value: any) => void) => (() => void), set?: (value: any) => void }
 ```
+ストアコントラクト(store contract) を実装すれば、svelte/store に依存しない独自のストアを作ることができます:
+
+ストアは、サブスクリプション関数を引数に取る .subscribe メソッドを持つ必要があります。このサブスクリプション関数は、.subscribe が呼ばれたら即座に・同期的に、ストアの現在の値を渡して呼び出されるようにする必要があります。ストアのアクティブなサブスクリプション関数は全て、ストアの値が変更されるたびに同期的に呼び出される必要があります。
+.subscribe メソッドは、サブスクリプションを解除する関数 (unsubscribe function) を返す必要があります。サブスクリプションを解除する関数が呼ばれたら、そのサブスクリプションを停止し、それに対応するサブスクリプション関数がそのストアから呼び出されないようにする必要があります。
+ストアは オプションで .set メソッドを持つことができます。.set メソッドは、引数としてストアの新しい値を受けとる必要があり、全てのアクティブなサブスクリプション関数を同期的に呼び出します。このようなストアは 書き込み可能なストア (writable store) と呼ばれます。
+RxJS の Observables との相互運用性のため、.subscribe メソッドはサブスクリプションを解除する関数を直接返すのではなく、.unsubscribe メソッドを持つオブジェクトを返すこともできます。ただし、.subscribe が同期的にサブスクリプションを呼び出さない限り(これはObservableの仕様で要求されていませんが)、サブスクリプションを呼び出すまでは、Svelte がストアの値を undefined とみなすことに注意してください。
+
+스토어 계약(store contract) 을 이용하면, [`svelte/store`](/docs/svelte-store)에 의존하지 않는 스토어를 만들 수 있습니다.
+
+1. 스토어는 구독 함수를 인수로 받는 `.subscribe` 메서드를 포함해야합니다. 이 메서드는 구독 함수 (subscription function) 를 인수로 받아야합니다. 구독 함수는 `.subscribe`를 호출할 때 즉시 동기적으로 호출되어 스토어의 현재 값으로 호출되어야합니다. 스토어의 모든 활성화된 구독 함수들은 스토어의 값이 변경될 때마다 나중에 동기적으로 호출되어야합니다.
+2. `.subscribe` 메서드는 구독 해제 함수 (unsubscribe function) 를 반환해야합니다. 구독 해제 함수를 호출하면 해당 구독이 중지되고, 해당 구독 함수는 스토어에 의해 다시는 호출되지 않습니다.
+3. 스토어는 선택적으로  `.set` 메서드를 포함할 수 있습니다. 이 메서드는 스토어의 새 값을 인수로 받아야하며, 스토어의 모든 활성화된 구독 함수들을 동기적으로 호출해야합니다. 이러한 스토어를 쓰기 가능한 스토어 (writable store) 라고합니다.
+
+RxJS Observables와의 상호 운용성을 위해 .subscribe 메서드는 구독 함수를 직접 반환하는 대신 .unsubscribe 메서드가있는 객체를 반환 할 수도 있습니다. 그러나 Observable 사양에서 요구하지 않는 구독을 동기적으로 호출하지 않는 한 (이 경우 Svelte는 스토어의 값을 undefined로 볼 수 있음), 스토어의 값을 볼 수 없습니다.
 
 You can create your own stores without relying on [`svelte/store`](/docs/svelte-store), by implementing the _store contract_:
 
@@ -278,9 +292,9 @@ You cannot `export default`, since the default export is the component itself.
 
 ## &lt;style&gt;
 
-CSS inside a `<style>` block will be scoped to that component.
+`<style>` 블록 내부의 CSS는 해당 컴포넌트에 대해 스코프가 지정됩니다.
 
-This works by adding a class to affected elements, which is based on a hash of the component styles (e.g. `svelte-123xyz`).
+이는 영향을 받는 요소에 클래스를 추가하여 작동합니다. 클래스는 컴포넌트 스타일의 해시를 기반으로 합니다 (예: `svelte-123xyz`).
 
 ```svelte
 <style>

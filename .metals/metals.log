@@ -1,0 +1,36 @@
+2023.08.06 01:01:23 INFO  Started: Metals version 1.0.0 in folders '/Users/kimdongjin/svelte-kr/svelte' for client Visual Studio Code 1.81.0.[0m
+8月 06, 2023 1:01:23 午前 org.flywaydb.core.internal.license.VersionPrinter printVersionOnly
+情報: Flyway Community Edition 9.20.1 by Redgate
+8月 06, 2023 1:01:23 午前 org.flywaydb.core.internal.license.VersionPrinter printVersion
+情報: See release notes here: https://rd.gt/416ObMi
+8月 06, 2023 1:01:23 午前 org.flywaydb.core.internal.license.VersionPrinter printVersion
+情報: 
+8月 06, 2023 1:01:23 午前 org.flywaydb.core.internal.database.base.BaseDatabaseType createDatabase
+情報: Database: jdbc:h2:file:/Users/kimdongjin/svelte-kr/svelte/.metals/metals (H2 2.1)
+8月 06, 2023 1:01:23 午前 org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory allAppliedMigrations
+情報: Schema history table "PUBLIC"."flyway_schema_history" does not exist yet
+8月 06, 2023 1:01:23 午前 org.flywaydb.core.internal.command.DbValidate validate
+情報: Successfully validated 4 migrations (execution time 00:00.008s)
+8月 06, 2023 1:01:23 午前 org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory create
+情報: Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+8月 06, 2023 1:01:23 午前 org.flywaydb.core.internal.command.DbMigrate migrateGroup
+情報: Current version of schema "PUBLIC": << Empty Schema >>
+8月 06, 2023 1:01:23 午前 org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+情報: Migrating schema "PUBLIC" to version "1 - Create tables"
+8月 06, 2023 1:01:23 午前 org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+情報: Migrating schema "PUBLIC" to version "2 - Server discovery"
+8月 06, 2023 1:01:23 午前 org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+情報: Migrating schema "PUBLIC" to version "3 - Jar symbols"
+8月 06, 2023 1:01:23 午前 org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+情報: Migrating schema "PUBLIC" to version "4 - Fingerprints"
+8月 06, 2023 1:01:23 午前 org.flywaydb.core.internal.command.DbMigrate logSummary
+情報: Successfully applied 4 migrations to schema "PUBLIC", now at version v4 (execution time 00:00.012s)
+2023.08.06 01:01:23 INFO  time: initialize in 0.39s[0m
+2023.08.06 01:01:31 WARN  Build server is not auto-connectable.[0m
+2023.08.06 01:01:31 WARN  no build tool detected in workspace '/Users/kimdongjin/svelte-kr/svelte'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+8月 06, 2023 1:01:45 午前 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+情報: Unsupported notification method: $/setTrace
+8月 06, 2023 1:01:45 午前 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+情報: Unsupported notification method: $/setTrace
+8月 13, 2023 4:37:01 午後 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+情報: Unsupported notification method: $/setTrace
